@@ -45,25 +45,26 @@ class EntryDetailViewController: UIViewController {
                 title = "Create Entry"
                 return
         }
-        
-        title = entry.title
-        titleTextField.text = entry.title
-        bodyTextView.text = entry.bodyText
-        
-        var segmentIndex = 0
-        
-        switch entry.mood {
-        case Mood.bad.rawValue:
-            segmentIndex = 0
-        case Mood.neutral.rawValue:
-            segmentIndex = 1
-        case Mood.good.rawValue:
-            segmentIndex = 2
-        default:
-            break
+        if isViewLoaded {
+            title = entry.title
+            titleTextField.text = entry.title
+            bodyTextView.text = entry.bodyText
+            
+            var segmentIndex = 0
+            
+            switch entry.mood {
+            case Mood.bad.rawValue:
+                segmentIndex = 0
+            case Mood.neutral.rawValue:
+                segmentIndex = 1
+            case Mood.good.rawValue:
+                segmentIndex = 2
+            default:
+                break
+            }
+            
+            moodSegmentedControl.selectedSegmentIndex = segmentIndex
         }
-        
-        moodSegmentedControl.selectedSegmentIndex = segmentIndex
     }
     
     var entry: Entry? {
