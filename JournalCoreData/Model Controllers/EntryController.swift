@@ -158,6 +158,7 @@ class EntryController {
                     self.update(entry: entry, with: entryRep)
                 } else if entry == nil {
                     _ = Entry(entryRepresentation: entryRep, context: context)
+                    saveToPersistentStore()
                 }
             }
         }
