@@ -18,7 +18,7 @@ class EntriesTableViewController: UITableViewController, NSFetchedResultsControl
                 NSLog("Error fetching entries from server: \(error)")
                 return
             }
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
             
